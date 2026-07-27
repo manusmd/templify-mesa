@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mesa
 
-## Getting Started
+A high-quality restaurant website template — part of the **Templify** collection.
+Built with **Next.js 16** (App Router) and **GSAP**. A wood-fired pizzeria in
+Kreuzberg, Berlin.
 
-First, run the development server:
+- Editorial dark design · Bodoni Moda + Archivo, ember accent
+- Split hero with stats, an interactive **tabbed menu**, story, and visit sections
+- GSAP fade-up reveals — reduced-motion & no-JS safe
+- Content-driven: the whole site renders from one typed object
+- German **Impressum** and **Datenschutzerklärung** placeholder pages
+
+---
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The whole site renders from one file: **`lib/content.ts`** (a typed `content`
+object — brand, hero, menu categories/dishes, story, visit, hours, footer).
+Change it and the site updates. The `/impressum` and `/datenschutz` pages hold
+placeholder legal text (every `[ … ]` marks a value to fill in) — complete and
+have them legally reviewed before going live.
 
-## Learn More
+## Deploy to Vercel
 
-To learn more about Next.js, take a look at the following resources:
+Push this repo and import it on Vercel — it's a static Next.js site, nothing to
+configure.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+lib/content.ts         Site content (typed, source of truth)
+app/page.tsx           The restaurant site (server component)
+app/components/        Sections, MenuTabs (client), Placeholder, Motion, Legal
+app/impressum/         Impressum placeholder
+app/datenschutz/       Datenschutzerklärung placeholder
+```
