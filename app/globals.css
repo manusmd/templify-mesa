@@ -59,6 +59,27 @@ html.lenis body {
   pointer-events: none;
 }
 
+/* Custom scrollbar (matches the warm palette) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.44 0.05 55);
+  border-radius: 999px;
+  border: 3px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--acc);
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.44 0.05 55) var(--bg);
+}
+
 /* Scroll progress bar */
 .scroll-progress {
   position: fixed;
