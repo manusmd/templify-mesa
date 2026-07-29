@@ -165,7 +165,13 @@ export function Footer({ content }: { content: SiteContent }) {
       <span className="footer-brand">{content.brand}</span>
       <div className="footer-links">
         {content.footer.links.map((l) => (
-          <a key={l.label} href={l.href}>
+          <a
+            key={l.label}
+            href={l.href}
+            {...(l.href.startsWith("http")
+              ? { target: "_blank", rel: "noreferrer" }
+              : {})}
+          >
             {l.label}
           </a>
         ))}
